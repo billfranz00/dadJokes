@@ -22,7 +22,9 @@ prompt.get('Search for a joke', function(err, result) {
 				console.log("No jokes were found with your search term bro, try again ;)")
 			}
 			else { // selects random joke from array of jokes
-				console.log(jokes.results[Math.floor(Math.random() * jokes.total_jokes)].joke);
+				var theJoke = jokes.results[Math.floor(Math.random() * jokes.total_jokes)].joke;
+				console.log(theJoke);
+				fs.writeFile('jokes.txt', theJoke);
 			}
 		}
 	})
